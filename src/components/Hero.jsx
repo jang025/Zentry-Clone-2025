@@ -1,6 +1,4 @@
 import { useRef, useState } from "react";
-import Button from "./Button";
-import { TiLocationArrow } from "react-icons/ti";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useEffect } from "react";
@@ -21,7 +19,7 @@ const Hero = () => {
   const handleVideoLoaded = () => {
     setLoadedVideos((prev) => prev + 1);
   };
-
+  // feature that allows you to change the background image when you click on the mini square
   const handleMiniVideoClick = () => {
     setHasClicked(true);
     setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
@@ -60,6 +58,7 @@ const Hero = () => {
     }
   );
 
+  // using css clip-path maker
   useGSAP(() => {
     gsap.set("#video-frame", {
       clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
@@ -89,6 +88,7 @@ const Hero = () => {
           </div>
         </div>
       )}
+
       <div
         id="video-frame"
         className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
@@ -142,12 +142,6 @@ const Hero = () => {
             <p className="mb-5 max-w-64 font-robert-regular text-blue-100 ">
               Enter the Metagame Layer <br /> Unleash the Play Economy
             </p>
-            <Button
-              id="watch-trailer"
-              title="Watch trailer"
-              leftIcon={<TiLocationArrow />}
-              containerClass="!bg-yellow-300 flex-center gap-1"
-            />
           </div>
         </div>
       </div>
